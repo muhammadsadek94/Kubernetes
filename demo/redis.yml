@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: mdb-deployment
+  labels:
+    name: myapp
+    type: mdatabase
+sepc:
+  template:
+    metadata:
+       name: mdp-pod
+       labels:
+          app: myapp
+          type: "redis-mdp" 
+     spec:
+        contaniers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: "6379"
+  replicas: 1
+  selector:
+     matchLabels:
+         app: myapp
+         type: "redis-mdp"     
+
+

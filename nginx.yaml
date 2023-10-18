@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+
+kind: Deploytment
+namespace: default 
+medtadata:
+  name: nginx-dep
+
+spec:
+
+ template:
+   metadata:
+     name: nginx
+     labels: 
+       app: nginx 
+   sepc:
+     - containers:
+        name: nginx
+        image: nginx:latest 
+        
+ selector:
+   matchlabels: 
+     app: nginx:latest
+
+       
+ replicas: 2  
+
+
